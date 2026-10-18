@@ -1,4 +1,4 @@
-RetailIQ Analytics — End-to-End Data Analytics Project
+#RetailIQ Analytics — End-to-End Data Analytics Project#
 
 An end-to-end retail analytics project that transforms raw sales data into actionable business insights using Python, Pandas, NumPy, SQL, React, and Power BI.
 
