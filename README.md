@@ -1,123 +1,130 @@
-# RetailIQ Analytics — End-to-End Data Analytics Portfolio Project
+RetailIQ Analytics — End-to-End Data Analytics Project
 
+An end-to-end retail analytics project that transforms raw sales data into actionable business insights using Python, Pandas, NumPy, SQL, React, and Power BI.
 
+Business Problem
 
-**Excel/CSV → Python (Pandas + NumPy) → SQL (SQLite) → React dashboard → Power BI**
+Retail businesses generate sales data across products, categories, customers, and dates. Raw data may contain missing values, inconsistent formats, and duplicate records, making it difficult to monitor performance and identify improvement opportunities.
 
-## Features
-- Upload Excel (`.xlsx`, `.xls`) or CSV files.
-- Preview raw data and run data-quality checks.
-- Clean column names, normalize common text fields, parse date columns, coerce numeric columns, remove duplicate rows, and handle missing values.
-- Load the cleaned data into SQLite.
-- Run SQL-powered business summaries: revenue by month, category, region, and top products.
-- Download cleaned CSV and query results.
-- Power BI integration guide and an optional report embed slot.
+RetailIQ Analytics streamlines the data-cleaning and analysis process and presents key business metrics through an interactive dashboard.
 
-> The dashboard starts with illustrative sample data so the UI is useful before uploading a file. Sample figures are labelled as demo data. Uploaded datasets replace the demo data.
+Project Objectives
 
-## Project structure
-```text
+* Clean and validate raw retail data.
+* Analyze sales, profit, and category-level performance.
+* Use SQL to summarize business metrics.
+* Visualize key performance indicators and trends.
+* Export cleaned data for further analysis in Power BI.
+
+Technology Stack
+
+Technology	Purpose
+Python	Backend processing
+Pandas	Data cleaning and manipulation
+NumPy	Numerical operations
+SQLite / SQL	Business analysis and aggregations
+Flask	Backend API
+React	Interactive dashboard interface
+Vite	Frontend development
+Power BI	Business intelligence reporting
+Git & GitHub	Version control and project hosting
+
+Project Workflow
+
+1. Data input: Upload a retail sales CSV or Excel file.
+2. Data cleaning: Process missing values, standardize fields, and handle duplicate records where applicable.
+3. SQL analysis: Calculate sales and profit summaries and analyze performance across categories and dates.
+4. Dashboard: Display KPIs, trends, and category-level comparisons.
+5. Export: Download cleaned data and analysis results for additional reporting.
+6. Power BI: Use the cleaned dataset to build a business intelligence report.
+
+Key Analytics
+
+The project dashboard includes metrics and visualizations such as:
+
+* Total sales revenue
+* Total profit
+* Number of orders
+* Revenue by product category
+* Profit by product category
+* Revenue trends over time
+
+These metrics can help identify strong-performing categories, track business performance, and investigate sales and profitability trends.
+
+Project Structure
+
 RetailIQ-Analytics/
 ├── backend/
 │   ├── app.py
 │   ├── analytics.py
-│   ├── requirements.txt
-│   └── uploads/                 # created automatically
+│   └── requirements.txt
 ├── frontend/
-│   ├── index.html
+│   ├── src/
 │   ├── package.json
-│   ├── vite.config.js
-│   └── src/
-│       ├── main.jsx
-│       ├── App.jsx
-│       └── styles.css
+│   ├── package-lock.json
+│   └── vite.config.js
 ├── powerbi/
+│   ├── RetailIQ-Analytics.pbix
 │   └── POWER_BI_GUIDE.md
+├── .gitignore
 └── README.md
-```
 
-## Requirements
-- Python 3.10+
-- Node.js 18+
-- Power BI Desktop (optional, for the report stage)
+How to Run Locally
 
-## 1. Start the Python backend
-From the project root:
+1. Clone the repository
 
-```bash
+git clone YOUR_GITHUB_REPOSITORY_URL
+cd RetailIQ-Analytics
+
+Replace YOUR_GITHUB_REPOSITORY_URL with your repository’s actual HTTPS URL.
+
+2. Set up the Python backend
+
 cd backend
-python -m venv .venv
-```
+python -m venv venv
 
-Activate the environment:
+Activate the environment on Windows:
 
-**Windows PowerShell**
-```powershell
-.venv\Scripts\Activate.ps1
-```
+.\venv\Scripts\Activate.ps1
 
-**macOS/Linux**
-```bash
-source .venv/bin/activate
-```
+Install dependencies and start the backend:
 
-Install packages and start the API:
-
-```bash
 pip install -r requirements.txt
 python app.py
-```
 
-API runs at `http://127.0.0.1:5000`. Health check: `http://127.0.0.1:5000/api/health`.
+3. Start the frontend
 
-## 2. Start the React UI
 Open a second terminal from the project root:
 
-```bash
 cd frontend
 npm install
 npm run dev
-```
 
-Open the local URL printed by Vite (normally `http://localhost:5173`).
+Open the local URL displayed by Vite in your browser.
 
-## 3. Try the project
-1. Click **Load demo data** to see the dashboard with clearly labelled example figures.
-2. Upload a retail orders Excel or CSV file.
-3. Review the raw preview and data-quality report.
-4. Click **Clean + analyse**.
-5. Review KPI cards, charts and SQL summaries.
-6. Download the cleaned CSV.
+4. Open the Power BI report
 
-### Recommended input columns
-The app tries to infer common field names. For best results, include columns similar to:
-- `Order Date`
-- `Order ID`
-- `Product`
-- `Category`
-- `Region`
-- `Quantity`
-- `Unit Price`
-- `Sales` (optional; calculated as Quantity × Unit Price if missing)
-- `Profit` (optional)
+Open powerbi/RetailIQ-Analytics.pbix using Power BI Desktop.
 
-Column matching is case-insensitive and ignores spaces/underscores. If your column names differ, rename them in Excel before upload for the most accurate analysis.
+Skills Demonstrated
 
-## 4. Power BI integration
-See `powerbi/POWER_BI_GUIDE.md`. Use Power BI Desktop to connect to the cleaned CSV or SQLite database and build a report. The React app includes a Power BI report section; paste a **Power BI secure embed URL** into the UI only if your organisation has configured the appropriate Power BI permissions. Do not publish sensitive data publicly.
+* Data cleaning and preprocessing
+* Exploratory data analysis
+* SQL aggregations and business metrics
+* REST API integration
+* Dashboard development
+* Business intelligence and data visualization
+* Git and GitHub version control
 
-## 5. Useful SQL questions
-The backend runs SQLite queries for:
-- Monthly revenue and profit
-- Revenue by category
-- Revenue by region
-- Top products by revenue
+Future Improvements
 
-Explore `backend/analytics.py` to see and explain the SQL.
+* Add customer segmentation and repeat-purchase analysis.
+* Introduce product-level profitability analysis.
+* Add date, category, and region filters.
+* Create automated data-quality reports.
+* Deploy the application for public access.
 
-## 6. Suggested resume bullet (only use after you have run and validated it)
-**RetailIQ — End-to-End Retail Sales Analytics | Python, Pandas, NumPy, SQL, React, Power BI**
-- Built an end-to-end analytics pipeline to ingest Excel/CSV sales data, profile data quality, clean missing values and duplicates using Pandas/NumPy, and load curated records into SQL.
-- Wrote SQL aggregations to analyse monthly revenue, product/category performance and regional trends; designed an interactive React dashboard and Power BI reporting workflow to communicate business insights.
+⸻
 
-Do not claim performance improvements or dataset sizes unless you measure them yourself.
+Project: RetailIQ Analytics
+Focus: Data Analytics | Business Intelligence | Dashboard Development
