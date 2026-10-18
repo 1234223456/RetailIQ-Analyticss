@@ -1,6 +1,6 @@
 # RetailIQ Analytics — End-to-End Data Analytics Portfolio Project
 
-RetailIQ demonstrates a practical workflow for Data Analyst / Decision Analyst roles:
+
 
 **Excel/CSV → Python (Pandas + NumPy) → SQL (SQLite) → React dashboard → Power BI**
 
